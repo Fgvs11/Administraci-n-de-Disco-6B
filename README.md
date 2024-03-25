@@ -12,6 +12,8 @@
   - LOOK
   - C-LOOK
 ## Mostrar la tabla
+![image](https://github.com/Fgvs11/Administraci-n-de-Disco-6B/assets/80965055/17d6290a-ab2f-4f71-98d7-49651aa8fc35)
+
 ## Mostrar los resultados finales
   - Desplazamiento
   - Tiempo Promedio de Espera
