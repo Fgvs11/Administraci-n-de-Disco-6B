@@ -12,7 +12,33 @@ def FCFS(nCilindros, peticiones, cilindroActual):
     return [tiempoEspera + desp, sTiempoEspera / len(peticiones)]
 
 def SSTF(nCilindros, peticiones, cilindroInicial):
-    pass
+    peticiones.sort()
+    peticionesAux = sorted(peticiones)
+    diferenciaCilindros = []
+    indexDiferenciaMenor = 0
+    cilindroActual = cilindroInicial
+    sTiempoEspera =0
+    tiempoEspera = 0
+    desp = 0
+
+    while peticionesAux:
+        for peticion in peticionesAux:
+            diferenciaCilindros.append(abs(cilindroActual - peticion))
+        
+        indexDiferenciaMenor = diferenciaCilindros.index(min(diferenciaCilindros))
+
+ 
+        tiempoEspera += desp
+        sTiempoEspera += tiempoEspera
+        desp = abs(peticionesAux[indexDiferenciaMenor] - cilindroActual)
+        u.imprimirRenglon(cilindroActual, peticionesAux[indexDiferenciaMenor], tiempoEspera, desp)
+        cilindroActual =  peticionesAux[indexDiferenciaMenor]
+        peticionesAux.remove(peticionesAux[indexDiferenciaMenor])
+        diferenciaCilindros = []
+    
+    return [tiempoEspera + desp, sTiempoEspera / len(peticiones)]
+
+
 def SCAN(nCilindros, peticiones, cilindroInicial):
     pass
 def CSCAN(nCilindros, peticiones, cilindroInicial):
