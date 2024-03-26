@@ -15,6 +15,6 @@ def __validarNumero(num):
         num = validar(num)
         return num
 
-def validar(num, li = 0, ls = 200):
+def validar(num, li = 0, ls = 199):
     num = __validarNumero(num)
     return __validarRango(num, li, ls)

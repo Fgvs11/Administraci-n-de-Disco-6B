@@ -22,8 +22,15 @@ def imprimirMenu():
    
    return v.validar(input('Ingrese el algoritmo deseado[0-5]: '),ls = 5)
 
-def imprimirCabezera():
+def imprimirCabezera(sel):
+   algoritmos = ('FCFS','SSTF','SCAN','C-SCAN','LOOK','C-LOOK')
+   print()
+   print(f'Algoritmo {algoritmos[sel]}:'.center(77))
+   print('_'*77)
    print('| Cilindro Actual | Cilindro solicitado | Tiempo de espera | Desplazamiento |')
+
+def imprimirFinal():
+   print('-'*77)
 
 def imprimirRenglon(cActual, cSolicitado, tEspera, desp):
    cActual = str(cActual)
@@ -31,3 +38,9 @@ def imprimirRenglon(cActual, cSolicitado, tEspera, desp):
    tEspera = str(tEspera)
    desp = str(desp)
    print(f'|{cActual.center(17)}|{cSolicitado.center(21)}|{tEspera.center(18)}|{desp.center(16)}|')
+
+def imprimirResultados(resultados):
+   print('\nRESULTADOS: ')
+   print(f'Total Desplazamiento: {resultados[0]}')
+   print('Tiempo promedio de espera: %.2f' % (resultados[1]))
+   input('Presione ENTER para finalizar')

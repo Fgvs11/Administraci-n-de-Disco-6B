@@ -1,5 +1,16 @@
-def FCFS(nCilindros, peticiones, cilindroInicial):
-    pass
+import utilidades as u
+def FCFS(nCilindros, peticiones, cilindroActual):
+    sTiempoEspera =0
+    tiempoEspera = 0
+    desp = 0
+    for cilindroSolicitado in peticiones:
+        tiempoEspera += desp
+        sTiempoEspera += tiempoEspera
+        desp = abs(cilindroSolicitado - cilindroActual)
+        u.imprimirRenglon(cilindroActual, cilindroSolicitado, tiempoEspera, desp)
+        cilindroActual = cilindroSolicitado
+    return [tiempoEspera + desp, sTiempoEspera / len(peticiones)]
+
 def SSTF(nCilindros, peticiones, cilindroInicial):
     pass
 def SCAN(nCilindros, peticiones, cilindroInicial):
