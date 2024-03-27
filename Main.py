@@ -19,13 +19,13 @@ u.borrarPantalla()
 u.imprimirDatosDeEntrada(nCilindros, peticiones, cilindroInicial)
 seleccion = u.imprimirMenu()
 
+bDir = v.validarBit(input('Ingrese el bit de direccion[0-1]: '))
 u.imprimirCabezera(seleccion)
 if seleccion == 0:
     resultados = m.FCFS(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 1:
     resultados = m.SSTF(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 2:
-    bDir = v.validarBit(input('Ingrese el bit de direccion[0-1]: '))
     resultados = m.SCAN(nCilindros, peticiones, cilindroInicial, bDir)
 elif seleccion == 3:
     resultados = m.CSCAN(nCilindros, peticiones, cilindroInicial)
