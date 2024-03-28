@@ -30,9 +30,8 @@ elif seleccion == 2:
     u.imprimirCabezera(seleccion)
     resultados = m.SCAN(nCilindros, peticiones, cilindroInicial, bDir)
 elif seleccion == 3:
-    bDir = v.validar(input('Ingrese el Bit de direccion[0-1]: '), li=0, ls=1)
     u.imprimirCabezera(seleccion)
-    resultados = m.CSCAN(nCilindros, peticiones, cilindroInicial, bDir)
+    resultados = m.CSCAN(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 4:
     u.imprimirCabezera(seleccion)
     resultados = m.LOOK(nCilindros, peticiones, cilindroInicial)
