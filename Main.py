@@ -19,19 +19,24 @@ u.borrarPantalla()
 u.imprimirDatosDeEntrada(nCilindros, peticiones, cilindroInicial)
 seleccion = u.imprimirMenu()
 
-bDir = v.validarBit(input('Ingrese el bit de direccion[0-1]: '))
-u.imprimirCabezera(seleccion)
 if seleccion == 0:
+    u.imprimirCabezera(seleccion)
     resultados = m.FCFS(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 1:
+    u.imprimirCabezera(seleccion)
     resultados = m.SSTF(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 2:
+    bDir = v.validar(input('Ingrese el Bit de direccion[0-1]: '), li=0, ls=1)
+    u.imprimirCabezera(seleccion)
     resultados = m.SCAN(nCilindros, peticiones, cilindroInicial, bDir)
 elif seleccion == 3:
+    u.imprimirCabezera(seleccion)
     resultados = m.CSCAN(nCilindros, peticiones, cilindroInicial)
 elif seleccion == 4:
+    u.imprimirCabezera(seleccion)
     resultados = m.LOOK(nCilindros, peticiones, cilindroInicial)
 else:
+    u.imprimirCabezera(seleccion)
     resultados = m.CLOOK(nCilindros, peticiones, cilindroInicial)
 u.imprimirFinal()
 u.imprimirResultados(resultados)
