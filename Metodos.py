@@ -14,11 +14,6 @@ def FCFS(nCilindros, peticiones, cilindroActual):
         cilindroActual = cilindroSolicitado
     return [tiempoEspera + desp, sTiempoEspera / len(peticiones)]
 
-
-def SSTF(nCilindros, peticiones, cilindroInicial):
-    pass
-
-
 def SCAN(nCilindros, peticiones, cilindroInicial, bDir):
     peticiones.sort()
     cilindroActual = cilindroInicial
@@ -74,7 +69,34 @@ def SCAN(nCilindros, peticiones, cilindroInicial, bDir):
         cilindrosOrdenados.pop(0)
         return [tiempoEspera + desp, sTiempoEspera / len(cilindrosOrdenados)]
 
+def SSTF(nCilindros, peticiones, cilindroActual):
+    peticionesCopia = peticiones[:]
+    sTiempoEspera = 0
+    tiempoEspera = 0
+    num_peticiones = len(peticiones)  # Número total de peticiones
 
+    for _ in range(num_peticiones):
+        minDistancia = float('inf')
+        siguienteCilindro = None
+        for cilindroSolicitado in peticionesCopia:
+            distancia = abs(cilindroSolicitado - cilindroActual)
+            if distancia < minDistancia:
+                minDistancia = distancia
+                siguienteCilindro = cilindroSolicitado
+        u.imprimirRenglon(cilindroActual, siguienteCilindro, tiempoEspera, minDistancia)
+        sTiempoEspera += tiempoEspera
+        tiempoEspera += minDistancia
+        cilindroActual = siguienteCilindro
+        peticionesCopia.remove(siguienteCilindro)  # Eliminar la petición atendida
+
+    if num_peticiones > 0:  # Verificar si hay peticiones iniciales
+        promedio_tiempo_espera = sTiempoEspera / len(peticiones)
+    else:
+        promedio_tiempo_espera = 0  # Asignar cero si no hay peticiones iniciales
+
+    return [tiempoEspera, promedio_tiempo_espera]
+
+    
 def CSCAN(nCilindros, peticiones, cilindroInicial):
     peticiones.sort()
     cilindroActual = cilindroInicial
